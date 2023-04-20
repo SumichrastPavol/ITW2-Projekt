@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Dongle', sans-serif;
+}
+
+body{
+    background-color: #CDE7B0;
+}
+/* HEADER */
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 100px;
+    background-color: #BE6E46;
+}
+
+header .Logo{
+    position: relative;
+    font-size: 1.5em;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header .Logo:hover{
+    color: #CDE7B0;
+}
+
+header .Navigation{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+header .Navigation li{
+    list-style: none;
+    margin: 0 10;
+}
+
+header .Navigation li a{
+    text-decoration: none;
+    font-size: 1.5em;
+    color: white;
+}
+
+header .Contact{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .Contact a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+header .Contact div:first-child::after{
+    content: "/";
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+}
+
+/* HEADER-END */
+
+/* HOME */
+
+.Home{
+    height: 80vh;
+    width: 85vw;
+    margin: 120px auto;
+    display: flex;
+    gap: 20px;
+}
+.Home .BlockA{
+    width: 60%;
+    height: 100%;
+    background-image: url(img/jungle.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 10px solid #3F6634;
+}
+.Home .BlockB{
+    width: 40%;
+    height: 100%;
+    background-color: #313e50;
+    border: 10px solid #B5BAD0;
+}
+
+/* HOME-END */
