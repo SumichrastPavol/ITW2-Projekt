@@ -160,33 +160,66 @@ header .Contact a{
     transition: all 0.5s;
     position: relative;
     box-shadow: 0px 0px 15px 5px #313e50;
+    overflow: hidden;
 }
 #Home #BlockA .Link{
     position: absolute;
     width: 150px;
     height: 150px;
-    top: 20px;
-    right: 20px;
+    top: 0px;
+    right: 40px;
+    transform: translateY(-100%);
+    transition: all 0.5s;
+}
+#Home #BlockA .Link::after,
+#Home #BlockA .Link::before{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 0%;
+    border: 0px solid transparent;
+    bottom: 0%;
+    right: 0%;
+    z-index: -1;
+}
+#Home #BlockA .Link::after{
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+}
+#Home #BlockA .Link::before{
+    border-top-width: 5px;
+    border-right-width: 5px;
+}
+#Home #BlockA:hover .Link::before,
+#Home #BlockA:hover .Link::after{
+    border-color: #3F6634;
+    transition: border-color 0s, width 0.3s, height 0.3s;
+    width: 100%;
+    height: 100%;
+}
+#Home #BlockA:hover .Link::before{
+    transition-delay: 0.5s, 0.8s, 0.5s;
+}
+#Home #BlockA:hover .Link::after{
+    transition-delay: 0.5s, 0.5s,  0.8s;
 }
 #Home #BlockA .Link a{
     text-decoration: none;
     font-size: 100px;
-    color: transparent;
+    color: white;
     height: 100%;
     width: 100%;
     display: inline-block;
-    word-break: break-all;
     line-height: 70px;
     text-align: center;
     padding-top: 15px;
-    border: 5px solid transparent;
-    transition: all 0.5s 0s;
+    transition: all 0.5s 1s;
 
 }
-#Home #BlockA:hover .Link a{
-    color: white;
-    border-color: #3F6634;
-    transition: color 0.5s 1s, border-color 0.5s 0.5s;
+#Home #BlockA:hover .Link{
+    transform: translateY(0);
+    top: 40px;
+    right: 40px;
 }
 #Home #BlockA:hover,
 #Home .BlockB:hover{
@@ -227,6 +260,63 @@ header .Contact a{
     position: relative;
     transition: all 0.5s;
     box-shadow: 0px 0px 15px 5px #313e50;
+    overflow: hidden;
+}
+#Home .BlockB:hover .Socials{
+    transform: translate(-50%, 0);
+    bottom: 40px;
+}
+#Home .BlockB .Socials{
+    width: 50%;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    transform: translate(-50%, 100%);
+    transition: all 0.5s;
+    z-index: 2;
+    padding: 10px;
+}
+#Home .BlockB .Socials::after,
+#Home .BlockB .Socials::before{
+    content: "";
+    position: absolute;
+    border: 0px solid transparent;
+    width: 0%;
+    height: 0%;
+    bottom: 0%;
+    right: 0%;
+    z-index: -1;
+}
+#Home .BlockB .Socials::after{
+    border-bottom-width: 2px;
+    border-left-width:  2px;
+}
+#Home .BlockB .Socials::before{
+    border-top-width: 2px;
+    border-right-width: 2px;
+}
+#Home .BlockB:hover .Socials::after,
+#Home .BlockB:hover .Socials::before{
+    border-color: white;
+    transition: border-color 0s, width 0.3s, height 0.3s;
+    width: 100%;
+    height: 100%;
+}
+#Home .BlockB:hover .Socials::after{
+    transition-delay: 0.5s, 0.5s, 0.8s;
+}
+#Home .BlockB:hover .Socials::before{
+    transition-delay: 0.5s, 0.8s, 0.5s;
+}
+
+#Home .BlockB .Socials a{
+    
+    text-decoration: none;
+    font-size: 64px;
+    color: white;
 }
 
 /* HOME-END */
@@ -461,6 +551,99 @@ header .Contact a{
 
 /* FOOTER */
 
+footer{
+    position: relative;
+    height: 250px;
+    background-color: #BE6E46;
+    margin-top: 200px;
+}
 
+.wave {
+    position: absolute;
+    top: -160px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
 
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 160px;
+}
+
+.wave .shape-fill {
+    fill: #BE6E46;
+}
+
+footer .Footer{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+}
+footer .Footer a{
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+}
+footer .Footer .Couch{
+    display: grid;
+    align-items: center;
+    color: white;
+    grid-template-columns: auto auto 100px;
+    grid-template-rows: auto auto;
+    column-gap: 15px;
+    row-gap: 30px;
+}
+footer .Footer img{
+    height: 64px;
+    width: 64px;
+}
+footer .Footer .Couch h2{
+    line-height: 30px;
+}
+footer .Couch a{
+    grid-column: 1/4;
+    text-align: center;
+    border: 5px solid white;
+    padding: 5px;
+    transition: all ease-in-out 0.5s;
+}
+footer .Couch a:hover{
+    background-color: white;
+    color: black;
+}
+footer .Menu a{
+    position: relative;
+    overflow: hidden;
+}
+footer .Menu a::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-bottom: 1px solid white;
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+}
+footer .Menu a:hover::after{
+    transform: translateX(0);
+}
+footer .Menu,
+footer .Socials{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-left: 2px solid white;
+    padding-left: 15px;
+}
+footer .Socials{
+    justify-content: space-around;
+}
 /* FOOTER-END */
