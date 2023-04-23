@@ -161,10 +161,38 @@ header .Contact a{
     position: relative;
     box-shadow: 0px 0px 15px 5px #313e50;
 }
-#Home #BlockA:hover{
+#Home #BlockA .Link{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 20px;
+    right: 20px;
+}
+#Home #BlockA .Link a{
+    text-decoration: none;
+    font-size: 100px;
+    color: transparent;
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    word-break: break-all;
+    line-height: 70px;
+    text-align: center;
+    padding-top: 15px;
+    border: 5px solid transparent;
+    transition: all 0.5s 0s;
+
+}
+#Home #BlockA:hover .Link a{
+    color: white;
+    border-color: #3F6634;
+    transition: color 0.5s 1s, border-color 0.5s 0.5s;
+}
+#Home #BlockA:hover,
+#Home .BlockB:hover{
     border-radius: 60px;
 }
-#Home #BlockA .Overlay{
+#Home .Overlay{
     width: 100%;
     height: 100%;
     position: absolute;
@@ -173,13 +201,14 @@ header .Contact a{
     transition: all 0.7s;
     border-radius: 0;
 }
-#Home #BlockA:hover .Overlay{
+#Home #BlockA:hover .Overlay,
+#Home .BlockB:hover .Overlay{
     width: 100%;
     height: 100%;
     position: absolute;
     background-color: black;
     opacity: 0.5;
-    border-radius: 60px;
+    border-radius: 50px;
 }
 #Home #BlockA h2{
     transition: all 2s;
@@ -192,8 +221,12 @@ header .Contact a{
 #Home .BlockB{
     width: 40%;
     height: 100%;
-    background-color: #313e50;
+    background-image: url(img/Adept3.png);
+    background-size: cover;
     border: 10px solid #B5BAD0;
+    position: relative;
+    transition: all 0.5s;
+    box-shadow: 0px 0px 15px 5px #313e50;
 }
 
 /* HOME-END */
@@ -225,23 +258,22 @@ header .Contact a{
     padding: 10px;
     background-color: #B5BAD0;
     border-radius: 40px 40px 0 0;
-    border-bottom: 4px solid #313e50;
+    border-bottom: 3px solid #313e50;
 }
 #Study .FIT h2{
     color: white;
-    font-size: 2em;
+    font-size: 2.5em;
+    text-align: center;
 }
-#Study .FIT .Course{
+#Study .FIT .Course,
+#Study .FIT .Year{
     overflow: hidden;
     position: relative;
-    width: 40%;
+    width: 45%;
 }
-#Study .Fit .Year{
-    width: 40%;
-}
-#Study .FIT .Course::after{
-    font-size: 2em;
-    content: "Sysyems And Signals";
+#Study .FIT .Course::after,
+#Study .FIT .Year::after{
+    font-size: 2.5em;
     position: absolute;
     top: 0;
     left: 0;
@@ -251,14 +283,25 @@ header .Contact a{
     transform: translateX(100%);
     transition: 0.3s;
 }
-#Study .FIT .Course h2{
+#Study .FIT .Course::after{
+    content: "Sysyems And Signals";
+    text-align: center;
+}
+#Study .FIT .Year::after{
+    content: "2022/23";
+    text-align: center;
+}
+#Study .FIT .Course h2,
+#Study .FIT .Year h2{
     display: block;
     transition: 0.3s;
 }
-#Study .FIT .Course:hover::after{
+#Study .FIT .Course:hover::after,
+#Study .FIT .Year:hover::after{
     transform: translateX(0);
 }
-#Study .FIT .Course:hover h2{
+#Study .FIT .Course:hover h2,
+#Study .FIT .Year:hover h2{
     transform: translateX(-100%);
 }
 
@@ -274,7 +317,7 @@ header .Contact a{
     box-shadow: 0px 0px 15px 5px #313e50;
 }
 #Study .Subject p{
-    font-size: 1.5em;
+    font-size: 2em;
 }
 #Study .Subject .Grade{
     display: flex;
@@ -314,21 +357,110 @@ header .Contact a{
     border: 10px dashed #3F6634;
     border-left: none;
     border-right: none;
+    padding-bottom: 50px;
 }
 
 #About h1{
     font-size: 5em;
 }
-#About div{
-    height: 100%;
-    width: 100%;
+#About .ContentGrid{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
+    row-gap: 2%;
+    column-gap: 40px;
+}
+#About .Bubble{
+    background-color: #E1F1D0;
+    box-shadow: 0px 0px 15px 5px #BE6E46;
+    border-radius: 40px;
+    padding: 15px;
+    transform: scale(1);
+    transition: transform 0.5s;
+    z-index: 1;
+}
+#About span{
+    color: #BE6E46;
+}
+#About .Plants{
+    position: relative;
+}
+#About .Plants img{
+    position: absolute;
+}
+#About .Plants .Swing{
+    position: absolute;
+    top: -5%;
+    left: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-origin: top center;
+    animation: swing 3s ease-in-out infinite alternate;
+    transition: transform 0.5s;
+}
+#About .Plants .Swing .Rope{
+    width: 5px;
+    height: 50px;
     background-color: #313e50;
-    border: 10px solid #B5BAD0;
-    margin-bottom: 20px;
+    z-index: -1;
+}
+#About .Plants .Swing .Pot{
+   top: 45px;
+}
+
+@keyframes swing{
+    0%,100%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(15deg);
+    }
+    50%{
+        transform: rotate(-15deg);
+    }    
+    75%{
+        transform: rotate(10deg);
+    }
+}
+
+#About .Plants:nth-child(4) img:first-child{
+    bottom: -4%;
+    transition: transform 0.5s;
+}
+#About .Plants:nth-child(4) img:nth-child(2){
+    transition: transform 0.5s;
+    bottom: -4%;
+    left: 200px;
+    transition-delay: 0.1s;
+}
+#About .Bubble:hover{
+    transform: scale(1.1);
+}
+#About .Bubble:hover+.Plants>img{
+    transform: translateY(-15px);
+}
+#About .Bubble:first-child:hover .Swing{
+    transform: translateY(15px);
 }
 #About p{
-    color: white;
-    font-size: 1.5em;
-    padding: 25px;
+    font-size: 2em;
+}
+
+
+
+#About div:nth-child(3){
+    grid-column: 2;
+    grid-row: 2;
+}
+#About div:nth-child(4){
+    grid-column: 2;
+    grid-row: 1;
 }
 /* ABOUT-END */
+
+/* FOOTER */
+
+
+
+/* FOOTER-END */
